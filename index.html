@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Data Analyst / Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7;
+    --cell:#F1F2F5;
+    --cell-border:#DBDDE3;
+    --ink:#191C22;
+    --ink-soft:#5A5F6B;
+    --blue:#2454E8;
+    --green:#0FA36B;
+    --amber:#C87A0A;
+    --coral:#E24A4A;
+    --line:#D8DAE0;
+    --radius:3px;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+    --display: 'Space Grotesk', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  ::selection{background:var(--blue);color:#fff;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,250,247,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar{
+    max-width:960px;margin:0 auto;padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    font-family:var(--mono);font-size:14px;font-weight:600;
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;
+    box-shadow:0 0 0 3px rgba(15,163,107,0.15);}
+  nav ul{list-style:none;display:flex;gap:26px;font-family:var(--mono);font-size:13px;}
+  nav a{color:var(--ink-soft);transition:color .15s;border-bottom:1px solid transparent;}
+  nav a:hover, nav a:focus-visible{color:var(--ink);border-bottom-color:var(--blue);}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:var(--radius);
+    font-family:var(--mono);font-size:12px;padding:6px 10px;color:var(--ink);}
+
+  @media (max-width:640px){
+    nav ul{display:none;}
+    .nav-toggle{display:block;}
+    nav ul.open{
+      display:flex;flex-direction:column;gap:0;
+      position:absolute;top:52px;right:0;left:0;background:var(--paper);
+      border-bottom:1px solid var(--line);padding:8px 28px 16px;
+    }
+    nav ul.open li{padding:10px 0;border-bottom:1px solid var(--line);}
+  }
+
+  /* ---------- SECTION LABELS ---------- */
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;color:var(--ink-soft);
+    display:flex;align-items:center;gap:10px;margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--line);}
+  section{padding:88px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  h2{font-family:var(--display);font-size:28px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em;}
+
+  /* ---------- CELL (notebook block) ---------- */
+  .cell{
+    display:grid;grid-template-columns:64px 1fr;
+    margin-bottom:18px;
+  }
+  .cell-io{
+    font-family:var(--mono);font-size:12px;color:var(--blue);
+    padding-top:14px;user-select:none;
+  }
+  .cell-io.out{color:var(--coral);}
+  .cell-body{
+    background:var(--cell);
+    border:1px solid var(--cell-border);
+    border-radius:var(--radius);
+    padding:20px 22px;
+  }
+  .cell-body.plain{background:transparent;border:none;padding:0 0 0 2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding-top:64px;}
+  .hero .cell-body{font-family:var(--mono);font-size:14px;color:var(--ink-soft);}
+  .hero .cell-body .kw{color:var(--blue);}
+  .hero .cell-body .str{color:var(--green);}
+  .hero-out{margin-top:0;}
+  .hero-out .cell-body{background:transparent;border:none;padding:6px 0 0 2px;}
+  .hero h1{
+    font-family:var(--display);font-size:clamp(34px,6vw,54px);
+    font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:14px;
+  }
+  .hero .role{
+    font-family:var(--mono);font-size:15px;color:var(--blue);margin-bottom:18px;
+  }
+  .hero p.blurb{max-width:56ch;color:var(--ink-soft);font-size:16px;margin-bottom:26px;}
+  .hero-links{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono);font-size:13px;padding:10px 16px;border-radius:var(--radius);
+    border:1px solid var(--ink);transition:all .15s;
+  }
+  .btn.primary{background:var(--ink);color:var(--paper);}
+  .btn.primary:hover{background:var(--blue);border-color:var(--blue);}
+  .btn.ghost{border-color:var(--line);color:var(--ink);}
+  .btn.ghost:hover{border-color:var(--ink);}
+
+  .blink{display:inline-block;width:8px;height:16px;background:var(--ink);
+    vertical-align:middle;margin-left:4px;animation:blink 1.1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start;}
+  @media (max-width:700px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid p{color:var(--ink-soft);margin-bottom:14px;}
+  .fact-table{font-family:var(--mono);font-size:13px;border:1px solid var(--cell-border);border-radius:var(--radius);overflow:hidden;}
+  .fact-row{display:flex;border-bottom:1px solid var(--cell-border);}
+  .fact-row:last-child{border-bottom:none;}
+  .fact-key{width:38%;padding:10px 12px;background:var(--cell);color:var(--ink-soft);border-right:1px solid var(--cell-border);}
+  .fact-val{padding:10px 12px;}
+
+  /* ---------- PROJECTS INDEX (dataframe) ---------- */
+  .df{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px;margin-bottom:56px;}
+  .df caption{text-align:left;font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-bottom:10px;}
+  .df thead th{
+    text-align:left;padding:10px 14px;background:var(--ink);color:var(--paper);
+    font-weight:500;font-size:12px;letter-spacing:0.02em;
+  }
+  .df thead th:first-child{border-radius:var(--radius) 0 0 0;}
+  .df thead th:last-child{border-radius:0 var(--radius) 0 0;}
+  .df tbody td{padding:12px 14px;border-bottom:1px solid var(--cell-border);vertical-align:top;}
+  .df tbody tr:hover{background:var(--cell);cursor:pointer;}
+  .df tbody tr:last-child td{border-bottom:1px solid var(--cell-border);}
+  .df tbody td:first-child{color:var(--ink-soft);width:34px;}
+  .tag{
+    display:inline-block;font-size:11px;padding:2px 7px;border-radius:2px;
+    background:var(--cell);border:1px solid var(--cell-border);margin:2px 4px 2px 0;color:var(--ink-soft);
+  }
+
+  /* ---------- PROJECT DETAIL CELLS ---------- */
+  .project{margin-bottom:64px;}
+  .project:last-child{margin-bottom:0;}
+  .project-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:6px;}
+  .project-title{font-family:var(--display);font-size:22px;font-weight:600;}
+  .project-domain{font-family:var(--mono);font-size:12px;color:var(--blue);}
+  .project-summary{color:var(--ink-soft);margin:10px 0 16px;max-width:64ch;}
+  .project-metrics{display:flex;gap:28px;flex-wrap:wrap;margin:16px 0;font-family:var(--mono);}
+  .metric .n{font-size:22px;font-weight:600;color:var(--ink);display:block;}
+  .metric .l{font-size:11px;color:var(--ink-soft);}
+  .project-links{display:flex;gap:16px;font-family:var(--mono);font-size:13px;margin-top:14px;}
+  .project-links a{color:var(--blue);border-bottom:1px solid transparent;}
+  .project-links a:hover{border-bottom-color:var(--blue);}
+
+  .chart{width:100%;height:auto;display:block;margin:18px 0 8px;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-code{
+    font-family:var(--mono);font-size:13.5px;background:var(--cell);
+    border:1px solid var(--cell-border);border-radius:var(--radius);padding:22px 24px;
+    line-height:1.9;overflow-x:auto;
+  }
+  .sk-key{color:var(--coral);}
+  .sk-str{color:var(--green);}
+  .sk-brace{color:var(--ink-soft);}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{border-left:1px solid var(--cell-border);padding-left:26px;}
+  .tl-item{position:relative;margin-bottom:30px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-31px;top:5px;width:9px;height:9px;
+    border-radius:50%;background:var(--paper);border:2px solid var(--blue);
+  }
+  .tl-date{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-bottom:4px;}
+  .tl-title{font-family:var(--display);font-weight:600;font-size:17px;margin-bottom:4px;}
+  .tl-org{font-size:14px;color:var(--ink-soft);margin-bottom:6px;}
+  .tl-desc{font-size:14px;color:var(--ink-soft);max-width:60ch;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-cell{
+    font-family:var(--mono);font-size:14px;background:var(--cell);
+    border:1px solid var(--cell-border);border-radius:var(--radius);padding:26px 28px;
+  }
+  .contact-cell .line{margin-bottom:8px;}
+  .contact-cell .prompt{color:var(--blue);}
+  .contact-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-family:var(--mono);font-size:13px;}
+  .contact-links a{color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .15s,color .15s;}
+  .contact-links a:hover{color:var(--blue);border-color:var(--blue);}
+
+  footer{padding:28px 0 40px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (max-width:640px){
+    .cell{grid-template-columns:40px 1fr;}
+    .cell-io{font-size:10px;padding-top:12px;}
+    section{padding:56px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="brand"><span class="dot"></span>Reed_Interdonato.portfolio</div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">menu</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="#about">about</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#timeline">background</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="cell">
+      <div class="cell-io">In [1]:</div>
+      <div class="cell-body">
+        <span class="kw">import</span> pandas <span class="kw">as</span> pd<br>
+        profile = pd.Series({<br>
+        &nbsp;&nbsp;<span class="str">"name"</span>: <span class="str">"Reed Interdonato"</span>,<br>
+        &nbsp;&nbsp;<span class="str">"role"</span>: <span class="str">"Data Analyst / Data Scientist"</span>,<br>
+        &nbsp;&nbsp;<span class="str">"status"</span>: <span class="str">"Open to Work"</span><br>
+        })<br>
+        profile
+      </div>
+    </div>
+    <div class="cell hero-out">
+      <div class="cell-io out">Out[1]:</div>
+      <div class="cell-body">
+        <h1>Reed Interdonato<span class="blink"></span></h1>
+        <div class="role">Data Analyst → Data Scientist, College of William and Mary Graduate</div>
+        <p class="blurb">I turn messy datasets into actionable insights. Recent graduate with hands on experience in SQL, 
+          Python, machine learning, data visualization, and dashboard development through academic and personal 
+          projects. Passionate about solving real world problems with data and looking for an analyst or junior 
+          data scientist role where I can deliver meaningful results from day one./p>
+        <div class="hero-links">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+          <a class="btn ghost" href="#" target="_blank" rel="noopener">Resume (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="eyebrow">01 · about</div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I'm a recent William and Mary graduate with a background in atheltics and teamwork. I like problems
+          where the interesting part isn't the model, it's figuring out what information actually matters, then
+          proving the answer with clean, reproducible analysis.</p>
+        <p>My toolkit centers on Python and SQL, with experience in data analysis, machine learning, statistical modeling, 
+          and data visualization. I enjoy building practical, user friendly tools, from interactive dashboards to web 
+          applications, that make data easier to understand and act on.</p>
+        <p>When I'm not working with data, I'm an assistant baseball coach, an avid movie fan, and someone who's always up for 
+          a good trivia night. I'm currently seeking analyst or junior data scientist opportunities where I can continue learning 
+          and make an impact through data.</p>
+      </div>
+      <div class="reveal fact-table">
+        <div class="fact-row"><div class="fact-key">location</div><div class="fact-val">Scottsdale, Arizona (Open to Relocation)</div></div>
+        <div class="fact-row"><div class="fact-key">education</div><div class="fact-val">Bachelors in Data Science, 2025</div></div>
+        <div class="fact-row"><div class="fact-key">focus</div><div class="fact-val">Data Analytics · Machine Learning · Dashboards</div></div>
+        <div class="fact-row"><div class="fact-key">tools</div><div class="fact-val">Python · SQL · Tableau</div></div>
+        <div class="fact-row"><div class="fact-key">availability</div><div class="fact-val">Immediate</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="eyebrow">02 · projects</div>
+    <h2 style="margin-bottom:28px;">Selected work</h2>
+
+    <table class="df reveal">
+      <caption>df.projects — 4 rows × 4 columns</caption>
+      <thead>
+        <tr><th>#</th><th>project</th><th>domain</th><th>tools</th></tr>
+      </thead>
+      <tbody>
+        <tr onclick="document.getElementById('proj-1').scrollIntoView({behavior:'smooth'})">
+          <td>0</td><td>Golf Trip Scoring & Payouts Dashboard</td><td>Web App / Sports Analytics</td>
+          <td><span class="tag">Python</span><span class="tag">Firebase</span><span class="tag">Next.js</span><span class="tag">Vercel</span></td>
+        </tr>
+        <tr onclick="document.getElementById('proj-2').scrollIntoView({behavior:'smooth'})">
+          <td>1</td><td>MLB Pitch Shape Comparison Tool</td><td>Baseball / Sports Analytics</td>
+          <td><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">matplotlib</span><span class="tag">HTML/CSS</span></td>
+        </tr>
+        <tr onclick="document.getElementById('proj-3').scrollIntoView({behavior:'smooth'})">
+          <td>2</td><td>Predicting Formula One Results</td><td>Motorsports / Regression Analysis</td>
+          <td><span class="tag">R</span><span class="tag">regression</span><span class="tag">stepwise selection</span></td>
+        </tr>
+        <tr onclick="document.getElementById('proj-4').scrollIntoView({behavior:'smooth'})">
+          <td>3</td><td>Minimum Spanning Tree Library</td><td>Algorithms / C++</td>
+          <td><span class="tag">C++</span><span class="tag">STL</span><span class="tag">Kruskal's</span><span class="tag">Prim's</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Project 1 -->
+    <div class="project reveal" id="proj-1">
+      <div class="project-head">
+        <div class="project-title">Golf Trip Scoring & Payouts Dashboard</div>
+        <div class="project-domain">web app / sports analytics</div>
+      </div>
+      <p class="project-summary">Built and shipped a live scoring app for a 15-player golf road trip, replacing a manual
+        spreadsheet with a real-time dashboard. It scored four simultaneous games at once — skins, net low round,
+        low total for the week, and a rolling hole-in-one bonus pot — and let players pick dynamic courses and tee
+        boxes as the trip moved between stops. Scores synced instantly across everyone's phones via Firebase, with
+        a live leaderboard and running money dashboard so payouts were settled before anyone left the course.</p>
+      <img class="chart" src="assets/money_tracker.png" alt="Screenshot of the live money tracker showing each player's skins, round placements, weekly placement, and total winnings" style="max-width:70%;border:1px solid var(--cell-border);border-radius:var(--radius);">
+      <div class="project-metrics">
+        <div class="metric"><span class="n">15</span><span class="l">players tracked</span></div>
+        <div class="metric"><span class="n">4</span><span class="l">scoring formats live at once</span></div>
+        <div class="metric"><span class="n">real-time</span><span class="l">sync via Firebase</span></div>
+      </div>
+      <div class="project-links">
+        <a href="https://golf-scoring-app-three.vercel.app/" target="_blank" rel="noopener">Live app →</a>
+        <a href="#" target="_blank" rel="noopener">GitHub repo →</a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project reveal" id="proj-2">
+      <div class="project-head">
+        <div class="project-title">MLB Pitch Shape Comparison Tool</div>
+        <div class="project-domain">baseball / sports analytics</div>
+      </div>
+      <p class="project-summary">Built a Python tool that takes an amateur pitcher's Trackman-style metrics
+        (velocity, spin rate, horizontal and vertical break) and finds the closest-shaped comp for each pitch
+        from a reference set of 440 real MLB pitches. Wrote a <code>PitchingMetrics</code> class to summarize
+        a pitcher's arsenal by pitch type, then matched each one to its nearest MLB neighbor by shape distance
+        in break-space. Results render into a two-tab HTML dashboard: a summary table with a pitch-shape plot,
+        and a side-by-side comparison table linking out to each matched pitcher's Baseball Savant page.</p>
+      <img class="chart" src="assets/pitch_shapes.png" alt="Scatter plot of the pitcher's four pitch shapes by horizontal and vertical break" style="max-width:30%;border:1px solid var(--cell-border);border-radius:var(--radius);">
+      <div class="project-metrics">
+        <div class="metric"><span class="n">440</span><span class="l">MLB reference pitches</span></div>
+        <div class="metric"><span class="n">5+</span><span class="l">pitch types analyzed</span></div>
+        <div class="metric"><span class="n">2</span><span class="l">dashboard views (summary + comps)</span></div>
+      </div>
+      <p style="font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);margin-top:14px;">
+        Still iterating on the matching logic — next up is factoring in spin axis alongside break for a tighter shape match.
+      </p>
+      <div class="project-links">
+        <a href="https://rinterdonatos.github.io/pitching-dashboard/" target="_blank" rel="noopener">Live dashboard →</a>
+        <a href="https://github.com/rinterdonatos/pitching-dashboard" target="_blank" rel="noopener">GitHub repo →</a>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <!-- Project 3 -->
+    <div class="project reveal" id="proj-3">
+      <div class="project-head">
+        <div class="project-title">Predicting Formula One Results</div>
+        <div class="project-domain">motorsports / regression analysis</div>
+      </div>
+      <p class="project-summary">Statistics project (co-developed with a classmate) predicting a driver's final
+        race position from over 26,000 rows of Formula One results spanning 1970–2023, filtered down to ~2,300
+        points with reliable pit-stop data. Built a first-order model with a weather–driver interaction term,
+        then a second-order model to improve fit, and used forward stepwise regression to simplify it into a
+        cleaner final model — balancing predictive power against overfitting.</p>
+      <img class="chart" src="assets/f1_qq_plots.png" alt="Normal Q-Q plots comparing the original model residuals to a rejected transformation attempt" style="max-width:50%;border:1px solid var(--cell-border);border-radius:var(--radius);">
+      <div class="project-metrics">
+        <div class="metric"><span class="n">0.64</span><span class="l">R²</span></div>
+        <div class="metric"><span class="n">3.507</span><span class="l">residual standard error</span></div>
+        <div class="metric"><span class="n">~2,300</span><span class="l">race results modeled</span></div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project reveal" id="proj-4">
+      <div class="project-head">
+        <div class="project-title">Minimum Spanning Tree Library</div>
+        <div class="project-domain">algorithms / C++</div>
+      </div>
+      <p class="project-summary">Implemented Kruskal's and lazy Prim's algorithms from scratch in C++ to find
+        minimum spanning trees on weighted, undirected graphs — built on top of a custom union-find structure
+        with path compression and union by size, and STL priority queues for edge selection. Verified correctness
+        against an independent reference implementation across multiple test graphs, then optimized Prim's
+        implementation to scan adjacency lists instead of the full edge set, cutting unnecessary work per vertex.</p>
+      <div class="project-metrics">
+        <div class="metric"><span class="n">2</span><span class="l">MST algorithms implemented</span></div>
+        <div class="metric"><span class="n">O(E log E)</span><span class="l">lazy Prim complexity</span></div>
+        <div class="metric"><span class="n">100%</span><span class="l">match vs. reference MST weights</span></div>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/rinterdonatos/Minimum-Spanning-Tree" target="_blank" rel="noopener">GitHub repo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <div class="eyebrow">03 · skills</div>
+    <h2 style="margin-bottom:22px;">Toolkit</h2>
+    <div class="skills-code reveal">
+<span class="sk-brace">skills = {</span><br>
+&nbsp;&nbsp;<span class="sk-key">"languages"</span>: [<span class="sk-str">"Python"</span>, <span class="sk-str">"SQL"</span>, <span class="sk-str">"R"</span>],<br>
+&nbsp;&nbsp;<span class="sk-key">"analysis"</span>: [<span class="sk-str">"pandas"</span>, <span class="sk-str">"numpy"</span>, <span class="sk-str">"statsmodels"</span>, <span class="sk-str">"scipy"</span>],<br>
+&nbsp;&nbsp;<span class="sk-key">"modeling"</span>: [<span class="sk-str">"scikit-learn"</span>, <span class="sk-str">"XGBoost"</span>, <span class="sk-str">"basic PyTorch"</span>],<br>
+&nbsp;&nbsp;<span class="sk-key">"visualization"</span>: [<span class="sk-str">"Tableau"</span>, <span class="sk-str">"matplotlib"</span>, <span class="sk-str">"seaborn"</span>, <span class="sk-str">"Power BI"</span>],<br>
+&nbsp;&nbsp;<span class="sk-key">"data_eng"</span>: [<span class="sk-str">"SQL"</span>, <span class="sk-str">"Airflow (intro)"</span>, <span class="sk-str">"dbt (intro)"</span>],<br>
+&nbsp;&nbsp;<span class="sk-key">"other"</span>: [<span class="sk-str">"Git"</span>, <span class="sk-str">"Excel"</span>, <span class="sk-str">"A/B testing"</span>, <span class="sk-str">"experiment design"</span>]<br>
+<span class="sk-brace">}</span>
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section id="timeline">
+    <div class="eyebrow">04 · background</div>
+    <h2 style="margin-bottom:28px;">Education & experience</h2>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-date">05/2025 – Current</div>
+        <div class="tl-title">Pitching Coach</div>
+        <div class="tl-org">Paradise Valley High School, Phoenix, AZ</div>
+        <div class="tl-desc">Provide individual and team pitching instruction — mechanics, pitch design, and in-game
+          strategy — using data-driven feedback like velocity, spin rate, and pitch shape to tailor development
+          plans for each pitcher.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2021 – 2025</div>
+        <div class="tl-title">B.S. in Data Science</div>
+        <div class="tl-org">College of William & Mary, Williamsburg, VA</div>
+        <div class="tl-desc">Relevant coursework: Machine Learning, Data Structures, SQL & Databases, Applied
+          Statistics, Data Visualization. Graduated May 2025.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">09/2023 – 09/2025</div>
+        <div class="tl-title">Student-Athlete</div>
+        <div class="tl-org">William & Mary, Williamsburg, VA</div>
+        <div class="tl-desc">Competed in Division I collegiate athletics while maintaining a full academic course
+          load — built discipline, teamwork, and time management through year-round training and competition.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">09/2023 – Current</div>
+        <div class="tl-title">Delivery Partner</div>
+        <div class="tl-org">Uber Eats, Williamsburg, VA</div>
+        <div class="tl-desc">Delivered safe and efficient transportation with a 4.9+ customer rating — managed
+          routes, real-time logistics, and customer communication independently.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="eyebrow">05 · contact</div>
+    <h2 style="margin-bottom:22px;">Let's talk</h2>
+    <div class="contact-cell reveal">
+      <div class="line"><span class="prompt">&gt;</span> status: open to Data Analyst / Data Scientist roles</div>
+      <div class="line"><span class="prompt">&gt;</span> email: rinterdonatos@gmail.com</div>
+      <div class="line"><span class="prompt">&gt;</span> location: Scottsdale, Arizona (open to remote)</div>
+      <div class="contact-links">
+        <a href="mailto:rinterdonatos@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/reed-interdonato-367477361" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/rinterdonatos" target="_blank" rel="noopener">GitHub</a>
+        <a href="assets/Reed_Interdonato_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>built with pandas-brained affection · last updated 2026</footer>
+
+<script>
+  // mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const list = document.getElementById('navList');
+  toggle.addEventListener('click', () => {
+    const open = list.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  list.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    list.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
