@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reed Interdonato — Data Analyst / Scientist</title>
+<title>Your Name — Data Analyst / Scientist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -273,7 +273,7 @@
         <div class="hero-links">
           <a class="btn primary" href="#projects">View projects</a>
           <a class="btn ghost" href="#contact">Get in touch</a>
-          <a class="btn ghost" href="assets/Reed_Interdonato_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          <a class="btn ghost" href="#" target="_blank" rel="noopener">Resume (PDF)</a>
         </div>
       </div>
     </div>
@@ -324,8 +324,8 @@
           <td><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">matplotlib</span><span class="tag">HTML/CSS</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-3').scrollIntoView({behavior:'smooth'})">
-          <td>2</td><td>Predicting Formula One Results</td><td>Motorsports / Regression Analysis</td>
-          <td><span class="tag">R</span><span class="tag">regression</span><span class="tag">stepwise selection</span></td>
+          <td>2</td><td>Reviewdle — Guess the Movie</td><td>Web App / Game Design</td>
+          <td><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">TMDB API</span><span class="tag">Trakt API</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-4').scrollIntoView({behavior:'smooth'})">
           <td>3</td><td>Minimum Spanning Tree Library</td><td>Algorithms / C++</td>
@@ -388,19 +388,24 @@
     <!-- Project 3 -->
     <div class="project reveal" id="proj-3">
       <div class="project-head">
-        <div class="project-title">Predicting Formula One Results</div>
-        <div class="project-domain">motorsports / regression analysis</div>
+        <div class="project-title">Reviewdle — Guess the Movie</div>
+        <div class="project-domain">web app / game design</div>
       </div>
-      <p class="project-summary">Statistics project (co-developed with a classmate) predicting a driver's final
-        race position from over 26,000 rows of Formula One results spanning 1970–2023, filtered down to ~2,300
-        points with reliable pit-stop data. Built a first-order model with a weather–driver interaction term,
-        then a second-order model to improve fit, and used forward stepwise regression to simplify it into a
-        cleaner final model — balancing predictive power against overfitting.</p>
-      <img class="chart" src="assets/f1_qq_plots.png" alt="Normal Q-Q plots comparing the original model residuals to a rejected transformation attempt" style="max-width:50%;border:1px solid var(--cell-border);border-radius:var(--radius);">
+      <p class="project-summary">A daily Wordle-style guessing game where you identify a movie from a sequence of
+        real reviews. I built it as a single-page vanilla JavaScript app on top of a dataset of over 1,600 movies
+        and 5,500+ real reviews sourced from the TMDB and Trakt APIs, with a date-seeded hash so every player gets
+        the same daily puzzle. It includes a custom-built autocomplete (native HTML datalists crash on mobile
+        Safari with a dataset this large, so I wrote my own), decade-filtered random mode, localStorage-backed
+        win/streak tracking, and Wordle-style shareable results. Bought the domain, wrote the full Open Graph and
+        favicon setup, and deployed it myself via GitHub Pages.</p>
+      <img class="chart" src="assets/reviewdle-preview.png" alt="Reviewdle title card: Guess the movie from its reviews, six guesses, each miss reveals another review" style="max-width:100%;border:1px solid var(--cell-border);border-radius:var(--radius);">
       <div class="project-metrics">
-        <div class="metric"><span class="n">0.64</span><span class="l">R²</span></div>
-        <div class="metric"><span class="n">3.507</span><span class="l">residual standard error</span></div>
-        <div class="metric"><span class="n">~2,300</span><span class="l">race results modeled</span></div>
+        <div class="metric"><span class="n">1,617</span><span class="l">movies in the dataset</span></div>
+        <div class="metric"><span class="n">5,500+</span><span class="l">real reviews sourced</span></div>
+        <div class="metric"><span class="n">0</span><span class="l">frontend frameworks used</span></div>
+      </div>
+      <div class="project-links">
+        <a href="https://reviewdle.live" target="_blank" rel="noopener">Live app →</a>
       </div>
     </div>
 
@@ -434,10 +439,10 @@
 <span class="sk-brace">skills = {</span><br>
 &nbsp;&nbsp;<span class="sk-key">"languages"</span>: [<span class="sk-str">"Python"</span>, <span class="sk-str">"SQL"</span>, <span class="sk-str">"R"</span>],<br>
 &nbsp;&nbsp;<span class="sk-key">"analysis"</span>: [<span class="sk-str">"pandas"</span>, <span class="sk-str">"numpy"</span>, <span class="sk-str">"statsmodels"</span>, <span class="sk-str">"scipy"</span>],<br>
-&nbsp;&nbsp;<span class="sk-key">"modeling"</span>: [<span class="sk-str">"scikit-learn"</span>, <span class="sk-str">"basic PyTorch"</span>],<br>
-&nbsp;&nbsp;<span class="sk-key">"visualization"</span>: [<span class="sk-str">"Tableau"</span>, <span class="sk-str">"matplotlib"</span>, <span class="sk-str">"seaborn"</span>],<br>
-&nbsp;&nbsp;<span class="sk-key">"data_eng"</span>: [<span class="sk-str">"SQL"</span>, <span class="sk-str">"dbt (intro)"</span>],<br>
-&nbsp;&nbsp;<span class="sk-key">"other"</span>: [<span class="sk-str">"Git"</span>, <span class="sk-str">"Excel"</span>, <span class="sk-str">"experiment design"</span>]<br>
+&nbsp;&nbsp;<span class="sk-key">"modeling"</span>: [<span class="sk-str">"scikit-learn"</span>, <span class="sk-str">"XGBoost"</span>, <span class="sk-str">"basic PyTorch"</span>],<br>
+&nbsp;&nbsp;<span class="sk-key">"visualization"</span>: [<span class="sk-str">"Tableau"</span>, <span class="sk-str">"matplotlib"</span>, <span class="sk-str">"seaborn"</span>, <span class="sk-str">"Power BI"</span>],<br>
+&nbsp;&nbsp;<span class="sk-key">"data_eng"</span>: [<span class="sk-str">"SQL"</span>, <span class="sk-str">"Airflow (intro)"</span>, <span class="sk-str">"dbt (intro)"</span>],<br>
+&nbsp;&nbsp;<span class="sk-key">"other"</span>: [<span class="sk-str">"Git"</span>, <span class="sk-str">"Excel"</span>, <span class="sk-str">"A/B testing"</span>, <span class="sk-str">"experiment design"</span>]<br>
 <span class="sk-brace">}</span>
     </div>
   </section>
@@ -486,7 +491,6 @@
     <div class="contact-cell reveal">
       <div class="line"><span class="prompt">&gt;</span> status: open to Data Analyst / Data Scientist roles</div>
       <div class="line"><span class="prompt">&gt;</span> email: rinterdonatos@gmail.com</div>
-      <div class="line"><span class="prompt">&gt;</span> phone: 602-736-9299</div>
       <div class="line"><span class="prompt">&gt;</span> location: Scottsdale, Arizona (open to remote)</div>
       <div class="contact-links">
         <a href="mailto:rinterdonatos@gmail.com">Email</a>
