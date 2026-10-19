@@ -128,13 +128,7 @@
   }
 
   /* ---------- HERO ---------- */
-  .hero{padding:88px 0 104px;position:relative;isolation:isolate;}
-  .hero::before{
-    content:"";position:absolute;inset:-40px 0 0;z-index:-1;pointer-events:none;
-    background:
-      radial-gradient(600px 300px at 15% 10%, var(--blue-soft), transparent 70%),
-      radial-gradient(500px 260px at 85% 30%, color-mix(in srgb, var(--green) 7%, transparent), transparent 70%);
-  }
+  .hero{padding:88px 0 104px;}
   .hero > .cell:first-child .cell-body{font-family:var(--mono);font-size:14px;color:var(--ink-soft);line-height:1.8;white-space:nowrap;}
   .hero .cell-body .kw{color:var(--blue);}
   .hero .cell-body .str{color:var(--green);}
@@ -360,7 +354,7 @@
           proving the answer with clean, reproducible analysis.</p>
         <p>My toolkit centers on Python and SQL, with experience in data analysis, machine learning, statistical modeling, 
           and data visualization. More recently I've been building LLM-powered tools with the Claude API and AI coding
-          agents, including an engine that automates my own job search end to end. I enjoy building practical, user friendly tools, from interactive dashboards to web 
+          agents. I enjoy building practical, user friendly tools, from interactive dashboards to web 
           applications, that make data easier to understand and act on.</p>
         <p>When I'm not working with data, I'm an assistant baseball coach, an avid movie fan, and someone who's always up for 
           a good trivia night. I'm currently seeking analyst or junior data scientist opportunities where I can continue learning 
@@ -382,7 +376,7 @@
     <h2>Selected work</h2>
 
     <div class="reveal">
-    <div class="df-caption">df.projects: 6 rows × 4 columns</div>
+    <div class="df-caption">df.projects: 5 rows × 4 columns</div>
     <div class="df-wrap">
     <table class="df">
       <thead>
@@ -393,24 +387,20 @@
           <td>0</td><td>Mound HQ: Player Development & Recruiting Platform</td><td>SaaS / Baseball Analytics</td>
           <td><span class="tag">TrackMan</span><span class="tag">HitTrax</span><span class="tag">Blast</span><span class="tag">Video</span></td>
         </tr>
-        <tr onclick="document.getElementById('proj-ai').scrollIntoView({behavior:'smooth'})">
-          <td>1</td><td>AI Job Application Engine</td><td>LLM App / Automation</td>
-          <td><span class="tag">Python</span><span class="tag">Claude API</span><span class="tag">Playwright</span><span class="tag">FastAPI</span></td>
-        </tr>
         <tr onclick="document.getElementById('proj-1').scrollIntoView({behavior:'smooth'})">
-          <td>2</td><td>Golf Trip Scoring & Payouts Dashboard</td><td>Web App / Sports Analytics</td>
+          <td>1</td><td>Golf Trip Scoring & Payouts Dashboard</td><td>Web App / Sports Analytics</td>
           <td><span class="tag">Python</span><span class="tag">Firebase</span><span class="tag">Next.js</span><span class="tag">Vercel</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-2').scrollIntoView({behavior:'smooth'})">
-          <td>3</td><td>MLB Pitch Shape Comparison Tool</td><td>Baseball / Sports Analytics</td>
+          <td>2</td><td>MLB Pitch Shape Comparison Tool</td><td>Baseball / Sports Analytics</td>
           <td><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">matplotlib</span><span class="tag">HTML/CSS</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-3').scrollIntoView({behavior:'smooth'})">
-          <td>4</td><td>Reviewdle: Guess the Movie</td><td>Web App / Game Design</td>
+          <td>3</td><td>Reviewdle: Guess the Movie</td><td>Web App / Game Design</td>
           <td><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">TMDB API</span><span class="tag">Trakt API</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-4').scrollIntoView({behavior:'smooth'})">
-          <td>5</td><td>Minimum Spanning Tree Library</td><td>Algorithms / C++</td>
+          <td>4</td><td>Minimum Spanning Tree Library</td><td>Algorithms / C++</td>
           <td><span class="tag">C++</span><span class="tag">STL</span><span class="tag">Kruskal's</span><span class="tag">Prim's</span></td>
         </tr>
       </tbody>
@@ -437,27 +427,6 @@
       </div>
       <div class="project-links">
         <a href="https://moundhq.com" target="_blank" rel="noopener">Live site →</a>
-      </div>
-    </div>
-
-    <!-- Project AI -->
-    <div class="project reveal" id="proj-ai">
-      <div class="project-head">
-        <div class="project-title">AI Job Application Engine</div>
-        <div class="project-domain">llm app / automation</div>
-      </div>
-      <p class="project-summary">Built an end-to-end job search pipeline with Claude Code that discovers openings,
-        scores each one's fit against my profile, and fills out applications in a real browser. It pulls listings
-        from Greenhouse, Lever, and Ashby job boards plus LinkedIn, Indeed, and ZipRecruiter, filters them for free
-        on title and location, then uses the Claude API to rate fit from 0 to 100 and flag dealbreakers. For the jobs
-        that clear the bar it writes a tailored cover letter and screening answers grounded only in my real
-        profile, and fills forms with Playwright. Anything it can't answer truthfully, or that hits a CAPTCHA or
-        login wall, goes to a "Needs you" queue rather than being guessed. A local FastAPI dashboard tracks every
-        application, a pipeline funnel, live run progress, and saved answers it reuses across applications.</p>
-      <div class="project-metrics">
-        <div class="metric"><span class="n">6</span><span class="l">job sources searched</span></div>
-        <div class="metric"><span class="n">0 to 100</span><span class="l">LLM fit score per job</span></div>
-        <div class="metric"><span class="n">5¢ to 15¢</span><span class="l">API cost per application</span></div>
       </div>
     </div>
 
