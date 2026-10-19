@@ -285,7 +285,7 @@
     <div class="eyebrow">01 · about</div>
     <div class="about-grid">
       <div class="reveal">
-        <p>I'm a recent William and Mary graduate with a background in atheltics and teamwork. I like problems
+        <p>I'm a recent William and Mary graduate with a background in athletics and teamwork. I like problems
           where the interesting part isn't the model, it's figuring out what information actually matters, then
           proving the answer with clean, reproducible analysis.</p>
         <p>My toolkit centers on Python and SQL, with experience in data analysis, machine learning, statistical modeling, 
@@ -299,7 +299,7 @@
         <div class="fact-row"><div class="fact-key">location</div><div class="fact-val">Scottsdale, Arizona (Open to Relocation)</div></div>
         <div class="fact-row"><div class="fact-key">education</div><div class="fact-val">Bachelors in Data Science, 2025</div></div>
         <div class="fact-row"><div class="fact-key">focus</div><div class="fact-val">Data Analytics · Machine Learning · Dashboards</div></div>
-        <div class="fact-row"><div class="fact-key">tools</div><div class="fact-val">Python · SQL · Tableau</div></div>
+        <div class="fact-row"><div class="fact-key">tools</div><div class="fact-val">Python · SQL · Power BI · Tableau</div></div>
         <div class="fact-row"><div class="fact-key">availability</div><div class="fact-val">Immediate</div></div>
       </div>
     </div>
@@ -311,29 +311,55 @@
     <h2 style="margin-bottom:28px;">Selected work</h2>
 
     <table class="df reveal">
-      <caption>df.projects — 4 rows × 4 columns</caption>
+      <caption>df.projects — 5 rows × 4 columns</caption>
       <thead>
         <tr><th>#</th><th>project</th><th>domain</th><th>tools</th></tr>
       </thead>
       <tbody>
+        <tr onclick="document.getElementById('proj-0').scrollIntoView({behavior:'smooth'})">
+          <td>0</td><td>Mound HQ — Player Development & Recruiting Platform</td><td>SaaS / Baseball Analytics</td>
+          <td><span class="tag">TrackMan</span><span class="tag">HitTrax</span><span class="tag">Blast</span><span class="tag">Video</span></td>
+        </tr>
         <tr onclick="document.getElementById('proj-1').scrollIntoView({behavior:'smooth'})">
-          <td>0</td><td>Golf Trip Scoring & Payouts Dashboard</td><td>Web App / Sports Analytics</td>
+          <td>1</td><td>Golf Trip Scoring & Payouts Dashboard</td><td>Web App / Sports Analytics</td>
           <td><span class="tag">Python</span><span class="tag">Firebase</span><span class="tag">Next.js</span><span class="tag">Vercel</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-2').scrollIntoView({behavior:'smooth'})">
-          <td>1</td><td>MLB Pitch Shape Comparison Tool</td><td>Baseball / Sports Analytics</td>
+          <td>2</td><td>MLB Pitch Shape Comparison Tool</td><td>Baseball / Sports Analytics</td>
           <td><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">matplotlib</span><span class="tag">HTML/CSS</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-3').scrollIntoView({behavior:'smooth'})">
-          <td>2</td><td>Reviewdle — Guess the Movie</td><td>Web App / Game Design</td>
+          <td>3</td><td>Reviewdle — Guess the Movie</td><td>Web App / Game Design</td>
           <td><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">TMDB API</span><span class="tag">Trakt API</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-4').scrollIntoView({behavior:'smooth'})">
-          <td>3</td><td>Minimum Spanning Tree Library</td><td>Algorithms / C++</td>
+          <td>4</td><td>Minimum Spanning Tree Library</td><td>Algorithms / C++</td>
           <td><span class="tag">C++</span><span class="tag">STL</span><span class="tag">Kruskal's</span><span class="tag">Prim's</span></td>
         </tr>
       </tbody>
     </table>
+
+    <!-- Project 0 -->
+    <div class="project reveal" id="proj-0">
+      <div class="project-head">
+        <div class="project-title">Mound HQ — Player Development & Recruiting Platform</div>
+        <div class="project-domain">saas / baseball analytics</div>
+      </div>
+      <p class="project-summary">Designed and launched a multi-tenant web platform where baseball programs log every
+        pitching and hitting session in one place — and where college coaches come to find recruits. Programs
+        import TrackMan, HitTrax, and Blast data instead of re-typing numbers, upload bullpen, cage, and game video
+        to a searchable timeline, and get automatic velocity trend charts for every outing. Each organization gets
+        its own branded, private site with separate logins and data, and can opt individual players into a
+        recruiting feed that approved college coaches search, follow, and watch film from.</p>
+      <div class="project-metrics">
+        <div class="metric"><span class="n">3</span><span class="l">data integrations (TrackMan · HitTrax · Blast)</span></div>
+        <div class="metric"><span class="n">2</span><span class="l">portals (programs + college coaches)</span></div>
+        <div class="metric"><span class="n">live</span><span class="l">with free 30-day trial</span></div>
+      </div>
+      <div class="project-links">
+        <a href="https://moundhq.com" target="_blank" rel="noopener">Live site →</a>
+      </div>
+    </div>
 
     <!-- Project 1 -->
     <div class="project reveal" id="proj-1">
@@ -354,7 +380,6 @@
       </div>
       <div class="project-links">
         <a href="https://golf-scoring-app-three.vercel.app/" target="_blank" rel="noopener">Live app →</a>
-        <a href="#" target="_blank" rel="noopener">GitHub repo →</a>
       </div>
     </div>
 
