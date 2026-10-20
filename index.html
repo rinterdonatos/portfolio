@@ -463,8 +463,9 @@
         pitcher's arm side so lefties and righties compare directly, and built a reference of each MLB pitcher's
         arsenal. Each of your pitches gets its five closest MLB comps on velocity, induced vertical break, horizontal
         break, spin, release height and extension, along with how those comps actually performed (whiff rate, run
-        value). A gradient-boosted whiff model trained on 336K MLB swings scores each pitch's "stuff" from its shape,
-        release and separation off the fastball, validated on pitchers held out of training.</p>
+        value). A gradient-boosted model trained on 336K MLB swings predicts each pitch's swing-and-miss rate from its
+        shape, release and separation off the fastball, validated on pitchers held out of training. Switch between
+        pitchers and filter by date range; everything recomputes in the browser.</p>
       <img class="shot wide" src="assets/pitch_shape_lab.png" alt="Pitch Shape Lab report showing the arsenal table with predicted whiff rates and the movement profile against every MLB pitch" width="1200" height="1180" loading="lazy">
       <div class="project-metrics">
         <div class="metric"><span class="n">707K</span><span class="l">MLB pitches (2025 Statcast)</span></div>
