@@ -392,8 +392,8 @@
           <td><span class="tag">Python</span><span class="tag">Firebase</span><span class="tag">Next.js</span><span class="tag">Vercel</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-2').scrollIntoView({behavior:'smooth'})">
-          <td>2</td><td>Pitch Shape Lab: MLB Comps & Whiff Model</td><td>Baseball / Sports Analytics</td>
-          <td><span class="tag">Statcast</span><span class="tag">scikit-learn</span><span class="tag">pandas</span><span class="tag">Plotly</span></td>
+          <td>2</td><td>Pitch Shape Lab: Stuff+ & MLB Comps</td><td>Baseball / Sports Analytics</td>
+          <td><span class="tag">Statcast</span><span class="tag">Stuff+</span><span class="tag">scikit-learn</span><span class="tag">pandas</span><span class="tag">Plotly</span></td>
         </tr>
         <tr onclick="document.getElementById('proj-3').scrollIntoView({behavior:'smooth'})">
           <td>3</td><td>Reviewdle: Guess the Movie</td><td>Web App / Game Design</td>
@@ -455,7 +455,7 @@
     <!-- Project 2 -->
     <div class="project reveal" id="proj-2">
       <div class="project-head">
-        <div class="project-title">Pitch Shape Lab: MLB Comps & Whiff Model</div>
+        <div class="project-title">Pitch Shape Lab: Stuff+ & MLB Comps</div>
         <div class="project-domain">baseball / sports analytics</div>
       </div>
       <p class="project-summary">Turns a TrackMan bullpen export into a scouting-style report on every pitch. Pulled the
@@ -463,18 +463,18 @@
         pitcher's arm side so lefties and righties compare directly, and built a reference of each MLB pitcher's
         arsenal. Each of your pitches gets its five closest MLB comps on velocity, induced vertical break, horizontal
         break, spin, release height and extension, along with how those comps actually performed (whiff rate, run
-        value). A gradient-boosted model trained on 336K MLB swings predicts each pitch's swing-and-miss rate from its
-        shape, release and separation off the fastball, validated on pitchers held out of training. Switch between
-        pitchers and filter by date range; everything recomputes in the browser.</p>
+        value). A Stuff+ model modeled on tjStuff+ (gradient-boosted, trained on every 2025 MLB pitch to predict
+        expected run value) grades each pitch from its average velocity, movement, spin, release and separation off
+        the fastball; the trees run in the browser, so switching pitchers or date ranges re-grades instantly.</p>
       <img class="shot wide" src="assets/pitch_shape_lab.png" alt="Pitch Shape Lab report showing the arsenal table with predicted whiff rates and the movement profile against every MLB pitch" width="1200" height="1180" loading="lazy">
       <div class="project-metrics">
         <div class="metric"><span class="n">707K</span><span class="l">MLB pitches (2025 Statcast)</span></div>
-        <div class="metric"><span class="n">336K</span><span class="l">swings in the whiff model</span></div>
+        <div class="metric"><span class="n">Stuff+</span><span class="l">100 = MLB average, 10 = 1 SD</span></div>
         <div class="metric"><span class="n">5</span><span class="l">MLB comps per pitch</span></div>
       </div>
       <p class="project-note">
         Rebuilt from my original 440-pitch comparison tool: real Statcast data instead of a hand-built list,
-        multi-feature comps instead of break alone, and outcomes (whiff%, run value) instead of shape only.
+        multi-feature comps instead of break alone, and a Stuff+ grade instead of shape only.
       </p>
       <div class="project-links">
         <a href="https://rinterdonatos.github.io/pitching-dashboard/" target="_blank" rel="noopener">Live lab: switch pitchers, filter dates →</a>
